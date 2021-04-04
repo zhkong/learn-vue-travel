@@ -1,16 +1,38 @@
 <template>
-  <div class="recommend-root">
-    <div class="recommend" v-for="item of recommendList" :key="item.id">
-      <div class="recommend-tail">
-        <div class="recommend-tail-info">
-          <div class="recommend-plan">{{ item.plan }}</div>
-          <div class="recommend-method">{{ item.method }}</div>
+  <div>
+    <div class="recommend-title">
+      <svg
+        t="1617540294534"
+        class="icon"
+        viewBox="0 0 1024 1024"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        p-id="3579"
+        width="19"
+        height="19"
+      >
+        <path
+          d="M709.12 196.266667A250.453333 250.453333 0 0 0 512 292.053333 250.88 250.88 0 0 0 64 448c0 187.093333 448 465.066667 448 465.066667S960 635.093333 960 448A251.093333 251.093333 0 0 0 709.12 196.266667z"
+          fill="#F44336"
+          p-id="3580"
+        ></path></svg
+      >猜你喜欢
+    </div>
+    <div class="recommend-root border-bottom" v-for="item of recommendList" :key="item.id">
+      <div class="recommend">
+        <div class="recommend-image">
+          <div class="recommend-bookable" v-if="item.bookable">
+            可定明日
+          </div>
+          <img :src="item.imageUrl" alt="" />
         </div>
-        <img :src="item.imageUrl" alt="" />
-      </div>
-      <div class="recommend-info">
-        <div class="recommend-content">{{ item.content }}</div>
-        <div class="recommend-price">{{ item.price }}</div>
+        <div class="recommend-plan">{{ item.plan }}</div>
+        <div class="recommend-comment">{{ item.comment }}</div>
+        <div class="recommend-introduction">
+          <span class="recommend-price">{{ item.price }}</span
+          >起
+          <span class="recommend-location">{{ item.location }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -24,104 +46,96 @@ export default {
       recommendList: [
         {
           id: '0001',
-          plan: '九江-丽江',
-          method: '5天自由行',
-          content: '含往返机票+4晚住宿',
-          price: '¥ 3110',
-          imageUrl: 'https://imgs.qunarzz.com/p/p70/1809/e7/4941057a6aae702.jpg_256x160_9fee6ccb.jpg'
+          plan: '千岛湖梦想2号游船',
+          comment: '170条评论',
+          price: '305',
+          imageUrl: 'https://imgs.qunarzz.com/sight/p0/1601/dc/dc7899b3ebf197d990.img.jpg_200x200_c82e2f38.jpg',
+          location: '千岛湖',
+          bookable: false
         },
         {
-          id: '0002 ',
-          plan: '九江-三亚',
-          method: '6天跟团游',
-          content: '含往返机票(含税)+5晚住宿',
-          price: '¥ 2580',
-          imageUrl: 'https://imgs.qunarzz.com/p/p67/1512/a2/0ebfcd965b9391f7.jpg_256x160_04d5813d.jpg'
+          id: '0002',
+          plan: '十门峡',
+          comment: '231条评论',
+          price: '105',
+          imageUrl: 'https://imgs.qunarzz.com/sight/p0/201212/17/7d3f0b5940eaf38493835fbb.png_200x200_b789e154.png',
+          location: '临安市',
+          bookable: true
         },
         {
           id: '0003',
-          plan: '九江-张家界',
-          method: '5天跟团行',
-          content: '含往返火车票+4晚住宿',
-          price: '¥ 2370',
-          imageUrl: 'https://imgs.qunarzz.com/sight/p0/1612/14/14bef79602a7780a3.water.jpg_256x160_3424b8ae.jpg'
-        },
-        {
-          id: '0004',
-          plan: '九江-武汉',
-          method: '6天跟团行',
-          content: '含往返火车票+5晚住宿',
-          price: '¥ 2029',
-          imageUrl: 'https://imgs.qunarzz.com/p/p3/1809/e5/59de4bd338291802.jpg_256x160_98c152cd.jpg'
+          plan: '千岛湖进贤湾水上乐园',
+          comment: '217条评论',
+          price: '168',
+          imageUrl:
+            'https://imgs.qunarzz.com/sight/p0/1507/a0/74fbaf383c2637cbd4df4c8ea6d6ff27.water.jpg_200x200_69e9a0eb.jpg',
+          location: '淳安县',
+          bookable: true
         }
-      ],
-      testData: {
-        id: '0001',
-        plan: '九江-丽江',
-        method: '5天自由行',
-        content: '含往返机票+4晚住宿',
-        price: '¥3110',
-        imageUrl: 'https://imgs.qunarzz.com/p/p70/1809/e7/4941057a6aae702.jpg_256x160_9fee6ccb.jpg'
-      }
+      ]
     }
   }
 }
 </script>
 
 <style scoped>
-/* @import './temp.css'; */
-.recommend-root {
-  display: flex;
-  width: 98%;
-  flex-wrap: wrap;
-  margin: auto;
+svg {
+  padding: 0 0.1rem 0 0;
+  vertical-align: bottom;
 }
 
-.recommend {
-  width: 47vw;
-  margin: 0 auto;
-}
-.recommend .recommend-tail {
-  width: 100%;
-  position: relative;
-}
-.recommend .recommend-tail .recommend-tail-info {
-  background: rgba(0, 0, 0, 0.75);
-  position: absolute;
-  display: block;
-  flex-direction: column;
-  width: 1.75rem;
-  height: 0.75rem;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-}
-.recommend .recommend-tail .recommend-tail-info .recommend-plan {
-  color: white;
-  font-size: 0.28rem;
-  margin: 0.06rem 0;
-}
-.recommend .recommend-tail .recommend-tail-info .recommend-method {
-  color: #ffde00;
-  font-size: 0.24rem;
-}
-.recommend .recommend-tail img {
-  width: 100%;
-  border-radius: 0.15rem;
-}
-.recommend .recommend-info {
-  padding-left: 0.12rem;
-}
-.recommend .recommend-info .recommend-content {
-  margin: 0.1rem;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.recommend .recommend-info .recommend-price {
-  font-size: 0.36rem;
+.recommend-title {
+  padding: 0.25rem;
+  margin: 0.2rem 0;
+  font-size: 1.2em;
   font-weight: bold;
-  color: #ff7400;
+  background: #f1f1f1;
+}
+
+.recommend-root {
+  height: 2.4rem;
+}
+.recommend-root .recommend {
+  height: 2rem;
+}
+.recommend-root .recommend .recommend-image {
+  height: 2rem;
+  float: left;
+  margin: 0.2rem;
+}
+.recommend-root .recommend .recommend-image img {
+  height: 100%;
+}
+.recommend-root .recommend .recommend-plan {
+  font-size: 0.32rem;
+  font-weight: bold;
+  padding: 0.4rem 0 0.2rem 0.5rem;
+}
+.recommend-root .recommend .recommend-comment {
+  font-size: 0.21rem;
+  color: #454;
+  padding: 0.2rem 0.5rem;
+}
+.recommend-root .recommend .recommend-introduction {
+  margin: 0.15rem 0.3rem;
+}
+.recommend-root .recommend .recommend-introduction .recommend-price {
+  font-size: 0.4rem;
+  color: #ff8300;
+}
+.recommend-root .recommend .recommend-introduction .recommend-location {
+  float: right;
+  font-size: 0.2rem;
+}
+
+.recommend-bookable {
+  background-image: url('https://img1.qunarzz.com/piao/fusion/1802/52/b9080e45b69b4f02.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  color: #fff;
+  font-size: 0.2rem;
+  height: 0.5rem;
+  padding: 0.05rem 0 0 0.02rem;
 }
 </style>
