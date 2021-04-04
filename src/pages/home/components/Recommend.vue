@@ -29,7 +29,7 @@
         <div class="recommend-plan">{{ item.plan }}</div>
         <div class="recommend-comment">{{ item.comment }}</div>
         <div class="recommend-introduction">
-          <span class="recommend-price">{{ item.price }}</span
+          <span class='rmb'>¥</span><span class="recommend-price">{{ item.price }}</span
           >起
           <span class="recommend-location">{{ item.location }}</span>
         </div>
@@ -137,5 +137,9 @@ svg {
   font-size: 0.2rem;
   height: 0.5rem;
   padding: 0.05rem 0 0 0.02rem;
+}
+
+.rmb{
+  color:#ff8300;
 }
 </style>
