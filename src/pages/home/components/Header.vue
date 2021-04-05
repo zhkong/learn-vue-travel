@@ -4,13 +4,15 @@
       <span class="iconfont">&#xe685;</span>
     </div>
     <div class="header-input">
-      <span class="iconfont">&#xe67d; </span>
+      <span class="iconfont">&#xe67d;</span>
       输入城市/游玩主题
     </div>
-    <div class="header-right">
-      城市
-      <span class="iconfont">&#xe688;</span>
-    </div>
+    <router-link to="/city">
+      <div class="header-right">
+        城市
+        <span class="iconfont">&#xe688;</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -53,5 +55,6 @@ html {
   width: 1.24rem;
   float: right;
   text-align: center;
+  color:#fff
 }
 </style>

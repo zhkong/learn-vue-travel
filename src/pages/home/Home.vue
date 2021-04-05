@@ -14,6 +14,7 @@ import HomeSwiper from './components/Swiper'
 import HomeIcons from './components/Icons'
 import HomeDiscount from './components/Discount'
 import HomeRecommend from './components/Recommend'
+
 import axios from 'axios'
 export default {
   name: 'Home',
