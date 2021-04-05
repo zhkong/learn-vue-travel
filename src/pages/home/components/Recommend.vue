@@ -15,22 +15,20 @@
           d="M709.12 196.266667A250.453333 250.453333 0 0 0 512 292.053333 250.88 250.88 0 0 0 64 448c0 187.093333 448 465.066667 448 465.066667S960 635.093333 960 448A251.093333 251.093333 0 0 0 709.12 196.266667z"
           fill="#F44336"
           p-id="3580"
-        ></path></svg
-      >猜你喜欢
+        />
+      </svg>猜你喜欢
     </div>
     <div class="recommend-root border-bottom" v-for="item of recommendList" :key="item.id">
       <div class="recommend">
         <div class="recommend-image">
-          <div class="recommend-bookable" v-if="item.bookable">
-            可定明日
-          </div>
-          <img :src="item.imageUrl" alt="" />
+          <div class="recommend-bookable" v-if="item.bookable">可定明日</div>
+          <img :src="item.imageUrl" alt />
         </div>
         <div class="recommend-plan">{{ item.plan }}</div>
         <div class="recommend-comment">{{ item.comment }}</div>
         <div class="recommend-introduction">
-          <span class='rmb'>¥</span><span class="recommend-price">{{ item.price }}</span
-          >起
+          <span class="rmb">¥</span>
+          <span class="recommend-price">{{ item.price }}</span>起
           <span class="recommend-location">{{ item.location }}</span>
         </div>
       </div>
@@ -41,39 +39,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '0001',
-          plan: '千岛湖梦想2号游船',
-          comment: '170条评论',
-          price: '305',
-          imageUrl: 'https://imgs.qunarzz.com/sight/p0/1601/dc/dc7899b3ebf197d990.img.jpg_200x200_c82e2f38.jpg',
-          location: '千岛湖',
-          bookable: false
-        },
-        {
-          id: '0002',
-          plan: '十门峡',
-          comment: '231条评论',
-          price: '105',
-          imageUrl: 'https://imgs.qunarzz.com/sight/p0/201212/17/7d3f0b5940eaf38493835fbb.png_200x200_b789e154.png',
-          location: '临安市',
-          bookable: true
-        },
-        {
-          id: '0003',
-          plan: '千岛湖进贤湾水上乐园',
-          comment: '217条评论',
-          price: '168',
-          imageUrl:
-            'https://imgs.qunarzz.com/sight/p0/1507/a0/74fbaf383c2637cbd4df4c8ea6d6ff27.water.jpg_200x200_69e9a0eb.jpg',
-          location: '淳安县',
-          bookable: true
-        }
-      ]
-    }
+  props: {
+    recommendList: Array
   }
 }
 </script>
@@ -139,7 +106,7 @@ svg {
   padding: 0.05rem 0 0 0.02rem;
 }
 
-.rmb{
-  color:#ff8300;
+.rmb {
+  color: #ff8300;
 }
 </style>
