@@ -1,23 +1,17 @@
 <template>
-  <ul class="alphabet-main">
-    <li class="alphabet">A</li>
-    <!-- <li class="alphabet">A</li>
-    <li class="alphabet">A</li>
-    <li class="alphabet">A</li>
-    <li class="alphabet">A</li>
-    <li class="alphabet">A</li>
-    <li class="alphabet">A</li>
-    <li class="alphabet">A</li>
-    <li class="alphabet">A</li>
-    <li class="alphabet">A</li>
-    <li class="alphabet">A</li>
-    <li class="alphabet">A</li> -->
-  </ul>
+  <div class="alphabet-main">
+    <div class="alphabet" v-for="(item, key) of citiesList" :key="key">
+      {{ key }}
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'ListAlphabet'
+  name: 'ListAlphabet',
+  props: {
+    citiesList: Object
+  }
 }
 </script>
 
@@ -29,9 +23,9 @@ export default {
   transform: translateY(-50%);
 }
 
-.alphabet{
-  font-size:.2rem;
-  margin:.06rem 0;
-  color:rgb(68, 178, 197);
+.alphabet {
+  font-size: 0.2rem;
+  margin: 0.06rem 0;
+  color: rgb(68, 178, 197);
 }
 </style>

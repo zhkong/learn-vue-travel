@@ -10,57 +10,29 @@
       <div class="hot-city">
         <div class="small-title">热门城市</div>
         <div class="all-city-list">
-          <div class="hot-city-name list-city-button">北京</div>
+          <div
+            class="hot-city-name list-city-button"
+            v-for="city in hotCitiesList"
+            :key="city.id"
+          >
+            {{ city.name }}
+          </div>
         </div>
       </div>
-      <div class="city-alphabet">
-        <div class="small-title">A</div>
+      <div
+        class="city-alphabet"
+        v-for="(allItems, key) of citiesList"
+        :key="key"
+      >
+        <div class="small-title">{{ key }}</div>
         <div class="all-city-list">
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <!-- <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
-          <div class="all-city-name list-city-list border-bottom">阿拉尔</div> -->
+          <div
+            class="all-city-name list-city-list border-bottom"
+            v-for="item of allItems"
+            :key="item.id"
+          >
+            {{ item.name }}
+          </div>
         </div>
       </div>
     </div>
@@ -71,6 +43,10 @@
 import BetterScroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    citiesList: Object,
+    hotCitiesList: Array
+  },
   mounted() {
     this.scroll = new BetterScroll(this.$refs.wrapper)
   }
