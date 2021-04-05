@@ -1,6 +1,6 @@
 <template>
-  <div class="city-list">
-    <div class="wrapper">
+  <div class="city-list" ref="wrapper">
+    <div>
       <div class="current-city">
         <div class="small-title">当前城市</div>
         <div class="all-city-list">
@@ -17,6 +17,50 @@
         <div class="small-title">A</div>
         <div class="all-city-list">
           <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <!-- <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div>
+          <div class="all-city-name list-city-list border-bottom">阿拉尔</div> -->
         </div>
       </div>
     </div>
@@ -24,10 +68,12 @@
 </template>
 
 <script>
-// import BetterScroll from 'better-scroll'
-// let bs = new BetterScroll()
+import BetterScroll from 'better-scroll'
 export default {
-  name: 'CityList'
+  name: 'CityList',
+  mounted() {
+    this.scroll = new BetterScroll(this.$refs.wrapper)
+  }
 }
 </script>
 
@@ -35,10 +81,10 @@ export default {
 .city-list {
   overflow: hidden;
   position: absolute;
-  left:0;
-  right:0;
-  top:1.46rem;
-  bottom:0;
+  left: 0;
+  right: 0;
+  top: 1.46rem;
+  bottom: 0;
 }
 .small-title {
   background: #edf5f9;
