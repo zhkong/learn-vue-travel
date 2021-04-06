@@ -47,8 +47,14 @@ export default {
     citiesList: Object,
     hotCitiesList: Array
   },
-  mounted() {
-    this.scroll = new BetterScroll(this.$refs.wrapper)
+  watch: {
+    citiesList() {
+      if (this.citiesList) {
+        this.$nextTick(function () {
+          this.scroll = new BetterScroll(this.$refs.wrapper)
+        })
+      }
+    }
   }
 }
 </script>
