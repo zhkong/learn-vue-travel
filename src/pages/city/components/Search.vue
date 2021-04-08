@@ -10,7 +10,12 @@
     </div>
     <div class="search-result" v-show="inputValue" ref="result">
       <ul>
-        <li class="border-bottom" v-for="item in searchResult" :key="item.id">
+        <li
+          class="border-bottom"
+          v-for="item in searchResult"
+          :key="item.id"
+          @click="handleCityChange(item.name)"
+        >
           {{ item.name }}
         </li>
         <li v-show="hasNoData">未找到该城市</li>
@@ -31,6 +36,12 @@ export default {
       inputValue: '',
       searchResult: [],
       timer: null
+    }
+  },
+  methods: {
+    handleCityChange(city) {
+      this.$store.commit('cc', city)
+      this.$router.push('/')
     }
   },
   computed: {

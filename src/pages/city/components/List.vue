@@ -4,7 +4,9 @@
       <div class="current-city">
         <div class="small-title">当前城市</div>
         <div class="all-city-list">
-          <div class="current-city-name list-city-button">北京</div>
+          <div class="current-city-name list-city-button">
+            {{ this.$store.state.city }}
+          </div>
         </div>
       </div>
       <div class="hot-city">
@@ -14,6 +16,7 @@
             class="hot-city-name list-city-button"
             v-for="city in hotCitiesList"
             :key="city.id"
+            @click="handleCityChange(city.name)"
           >
             {{ city.name }}
           </div>
@@ -31,6 +34,7 @@
             class="all-city-name list-city-list border-bottom"
             v-for="item of allItems"
             :key="item.id"
+            @click="handleCityChange(item.name)"
           >
             {{ item.name }}
           </div>
@@ -49,18 +53,22 @@ export default {
     hotCitiesList: Array,
     letter: String
   },
+  methods: {
+    handleCityChange(city) {
+      this.$store.commit('cc', city)
+      this.$router.push('/')
+    }
+  },
   watch: {
-    citiesList() {
-      if (this.citiesList) {
-        this.$nextTick(function () {
-          this.scroll = new BetterScroll(this.$refs.wrapper)
-        })
-      }
-    },
     letter() {
       let element = this.$refs[this.letter][0]
       this.scroll.scrollToElement(element)
     }
+  },
+  mounted() {
+    this.$nextTick(function () {
+      this.scroll = new BetterScroll(this.$refs.wrapper)
+    })
   }
 }
 </script>

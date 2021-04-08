@@ -9,7 +9,7 @@
     </div>
     <router-link to="/city">
       <div class="header-right">
-        城市
+        {{this.$store.state.city}}
         <span class="iconfont">&#xe688;</span>
       </div>
     </router-link>
@@ -55,6 +55,9 @@ html {
   width: 1.24rem;
   float: right;
   text-align: center;
-  color:#fff
+  color:#fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>
