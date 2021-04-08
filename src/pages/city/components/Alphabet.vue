@@ -40,7 +40,7 @@ export default {
       if (this.timer) {
         clearTimeout(this.timer)
       }
-      // 防抖？？
+      // 节流？？
       this.timer = setTimeout(() => {
         let clientY = e.touches[0].clientY
         let index = Math.floor((clientY - 73 - this.offsetTop) / 16)
