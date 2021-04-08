@@ -23,6 +23,7 @@
         class="city-alphabet"
         v-for="(allItems, key) of citiesList"
         :key="key"
+        :ref="key"
       >
         <div class="small-title">{{ key }}</div>
         <div class="all-city-list">
@@ -45,7 +46,8 @@ export default {
   name: 'CityList',
   props: {
     citiesList: Object,
-    hotCitiesList: Array
+    hotCitiesList: Array,
+    letter: String
   },
   watch: {
     citiesList() {
@@ -54,6 +56,10 @@ export default {
           this.scroll = new BetterScroll(this.$refs.wrapper)
         })
       }
+    },
+    letter() {
+      let element = this.$refs[this.letter][0]
+      this.scroll.scrollToElement(element)
     }
   }
 }

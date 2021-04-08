@@ -2,8 +2,15 @@
   <div>
     <CityHeader />
     <CitySearch />
-    <CityList :citiesList="citiesList" :hotCitiesList="hotCitiesList" />
-    <ListAlphabet :citiesList="citiesList" />
+    <CityList
+      :citiesList="citiesList"
+      :hotCitiesList="hotCitiesList"
+      :letter="letter"
+    />
+    <ListAlphabet
+      :citiesListAlphabet="citiesListAlphabet"
+      @change="handleScroll"
+    />
   </div>
 </template>
 
@@ -26,7 +33,9 @@ export default {
     return {
       hotCitiesList: [],
       citiesList: {},
-      alphabet: []
+      alphabet: [],
+      letter: '',
+      citiesListAlphabet: []
     }
   },
   mounted() {
@@ -43,6 +52,10 @@ export default {
     handleCityInfo(data) {
       this.hotCitiesList = data.hotCities
       this.citiesList = data.cities
+      this.citiesListAlphabet = Object.keys(data.cities)
+    },
+    handleScroll(letter) {
+      this.letter = letter
     }
   }
 }
