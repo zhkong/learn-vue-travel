@@ -5,6 +5,7 @@
       v-for="item of citiesListAlphabet"
       :key="item"
       :ref="item"
+      @click="handleClick"
       @touchmove="handleTouchMove"
     >
       {{ item }}
@@ -15,8 +16,17 @@
 <script>
 export default {
   name: 'ListAlphabet',
+  data() {
+    return {
+      offsetTop: 0,
+      timer: null
+    }
+  },
   props: {
     citiesListAlphabet: Array
+  },
+  updated() {
+    this.offsetTop = this.$refs['A'][0].offsetTop
   },
   methods: {
     handleClick(e) {
@@ -27,12 +37,17 @@ export default {
     //   console.log('start')
     // },
     handleTouchMove(e) {
-      let clientY = e.touches[0].clientY
-      let offsetTop = this.$refs['A'][0].offsetTop
-      let index = Math.floor((clientY - 73 - offsetTop) / 16)
-      if (index >= 0 && index <= 21) {
-        this.$emit('change', this.citiesListAlphabet[index])
+      if (this.timer) {
+        clearTimeout(this.timer)
       }
+      // 防抖？？
+      this.timer = setTimeout(() => {
+        let clientY = e.touches[0].clientY
+        let index = Math.floor((clientY - 73 - this.offsetTop) / 16)
+        if (index >= 0 && index <= 21) {
+          this.$emit('change', this.citiesListAlphabet[index])
+        }
+      }, 10)
     }
     // handleTouchEnd() {
     //   console.log('end')
