@@ -26,6 +26,7 @@
 
 <script>
 import BetterScroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 export default {
   name: 'CitySearch',
   props: {
@@ -40,9 +41,12 @@ export default {
   },
   methods: {
     handleCityChange(city) {
-      this.$store.commit('cc', city)
+      this.ChangeCity(city)
       this.$router.push('/')
-    }
+    },
+    ...mapMutations({
+      ChangeCity: 'cc'
+    })
   },
   computed: {
     hasNoData() {
