@@ -1,6 +1,6 @@
 @charset "utf-8";
 html {
-  touch-action: manipulation;
+  touch-action: manipulation; /*避免300ms延迟*/
   background-color: #fff;
   color: #000;
   font-size: 12px;
