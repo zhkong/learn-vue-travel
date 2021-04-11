@@ -14,6 +14,7 @@ import HomeSwiper from './components/Swiper'
 import HomeIcons from './components/Icons'
 import HomeDiscount from './components/Discount'
 import HomeRecommend from './components/Recommend'
+import { mapState } from 'vuex'
 
 import axios from 'axios'
 export default {
@@ -27,16 +28,21 @@ export default {
   },
   data() {
     return {
-      city: '',
+      lastCity: '',
       swiperList: [],
       iconList: [],
       discountList: [],
       recommendList: []
     }
   },
+  computed: {
+    ...mapState(['city'])
+  },
   methods: {
     getHomeData() {
-      axios.get('/api/index.json').then(res => this.getHomeDataSucc(res.data))
+      axios
+        .get(`/api/index.json?city=${this.city}`)
+        .then(res => this.getHomeDataSucc(res.data))
     },
     getHomeDataSucc(res) {
       if (res.ret) {
@@ -49,7 +55,14 @@ export default {
     }
   },
   mounted() {
+    this.lastCity = this.city
     this.getHomeData()
+  },
+  activated() {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getHomeData()
+    }
   }
 }
 </script>
