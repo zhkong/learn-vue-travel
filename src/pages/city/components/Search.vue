@@ -75,7 +75,9 @@ export default {
     }
   },
   mounted() {
-    this.scroll = new BetterScroll(this.$refs.result)
+    this.scroll = new BetterScroll(this.$refs.result, {
+      click: true
+    })
   }
 }
 </script>

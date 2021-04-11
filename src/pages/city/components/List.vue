@@ -74,7 +74,9 @@ export default {
   },
   mounted() {
     // this.$nextTick(function () {
-    this.scroll = new BetterScroll(this.$refs.wrapper)
+    this.scroll = new BetterScroll(this.$refs.wrapper, {
+      click: true
+    })
     // })
   }
 }
