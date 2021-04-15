@@ -15,24 +15,34 @@
           d="M709.12 196.266667A250.453333 250.453333 0 0 0 512 292.053333 250.88 250.88 0 0 0 64 448c0 187.093333 448 465.066667 448 465.066667S960 635.093333 960 448A251.093333 251.093333 0 0 0 709.12 196.266667z"
           fill="#F44336"
           p-id="3580"
-        />
-      </svg>猜你喜欢
+        /></svg
+      >猜你喜欢
     </div>
-    <div class="recommend-root border-bottom" v-for="item of recommendList" :key="item.id">
-      <div class="recommend">
-        <div class="recommend-image">
-          <div class="recommend-bookable" v-if="item.bookable">可定明日</div>
-          <img :src="item.imageUrl" alt />
+      <div
+        tag="div"
+        class="recommend-root border-bottom"
+        v-for="item of recommendList"
+        :key="item.id"
+        :to="'/detail/' + item.id"
+        @click="handleJumpDetail(item.id)"
+      >
+        <router-link :to="'/detail/' + item.id" custom v-slot="{ navigate }">
+        <div class="recommend" @click="navigate">
+          <div class="recommend-image">
+            <div class="recommend-bookable" v-if="item.bookable">可定明日</div>
+            <img :src="item.imageUrl" alt />
+          </div>
+          <div class="recommend-plan">{{ item.plan }}</div>
+          <div class="recommend-comment">{{ item.comment }}</div>
+          <div class="recommend-introduction">
+            <span class="rmb">¥</span>
+            <span class="recommend-price">{{ item.price }}</span
+            >起
+            <span class="recommend-location">{{ item.location }}</span>
+          </div>
         </div>
-        <div class="recommend-plan">{{ item.plan }}</div>
-        <div class="recommend-comment">{{ item.comment }}</div>
-        <div class="recommend-introduction">
-          <span class="rmb">¥</span>
-          <span class="recommend-price">{{ item.price }}</span>起
-          <span class="recommend-location">{{ item.location }}</span>
-        </div>
+        </router-link>
       </div>
-    </div>
   </div>
 </template>
 
@@ -41,6 +51,11 @@ export default {
   name: 'HomeRecommend',
   props: {
     recommendList: Array
+  },
+  methods: {
+    handleJumpDetail(id) {
+      console.log(id)
+    }
   }
 }
 </script>
