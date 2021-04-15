@@ -59,10 +59,12 @@ export default {
 
 .gallery-header-text {
   position: absolute;
-  bottom: 0.15rem;
+  bottom: 0;
   left: 0;
   right: 0;
   display: flex;
+  padding: 0.15rem 0;
+  background: linear-gradient(top, transparent, rgba(0, 0, 0, 0.9));
 }
 
 .gallery-header-text .text {
