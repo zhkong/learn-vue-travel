@@ -78,7 +78,7 @@ export default {
 
 .header-back-static {
   position: fixed;
-  z-index: 12;
+  z-index: 8;
   left: 0.2rem;
   top: 0.2rem;
   padding: 0.15rem;
