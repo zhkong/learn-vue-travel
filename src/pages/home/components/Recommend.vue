@@ -18,15 +18,14 @@
         /></svg
       >猜你喜欢
     </div>
-      <div
-        tag="div"
-        class="recommend-root border-bottom"
-        v-for="item of recommendList"
-        :key="item.id"
-        :to="'/detail/' + item.id"
-        @click="handleJumpDetail(item.id)"
-      >
-        <router-link :to="'/detail/' + item.id" custom v-slot="{ navigate }">
+    <div
+      class="recommend-root border-bottom"
+      v-for="item of recommendList"
+      :key="item.id"
+      :to="'/detail/' + item.id"
+      @click="handleJumpDetail(item.id)"
+    >
+      <router-link :to="'/detail/' + item.id" custom v-slot="{ navigate }">
         <div class="recommend" @click="navigate">
           <div class="recommend-image">
             <div class="recommend-bookable" v-if="item.bookable">可定明日</div>
@@ -41,8 +40,8 @@
             <span class="recommend-location">{{ item.location }}</span>
           </div>
         </div>
-        </router-link>
-      </div>
+      </router-link>
+    </div>
   </div>
 </template>
 

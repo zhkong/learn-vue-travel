@@ -1,5 +1,6 @@
 <template>
   <div>
+    <detail-header />
     <detail-banner :imageList="imageList" @shown="handleImageShown" />
     <gallery
       v-show="isShown"
@@ -7,17 +8,20 @@
       :imageList="imageList"
       @close="handleImageShown"
     />
+    <div :style="{ height: '50rem', color: 'red' }">a</div>
   </div>
 </template>
 
 <script>
 import Gallery from 'common/gallery/Gallery'
 import DetailBanner from './components/Banner'
+import DetailHeader from './components/Header'
 export default {
   name: 'Detail',
   components: {
     Gallery,
-    DetailBanner
+    DetailBanner,
+    DetailHeader
   },
   data() {
     return {
