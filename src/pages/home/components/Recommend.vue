@@ -23,7 +23,6 @@
       v-for="item of recommendList"
       :key="item.id"
       :to="'/detail/' + item.id"
-      @click="handleJumpDetail(item.id)"
     >
       <router-link :to="'/detail/' + item.id" custom v-slot="{ navigate }">
         <div class="recommend" @click="navigate">
@@ -50,11 +49,6 @@ export default {
   name: 'HomeRecommend',
   props: {
     recommendList: Array
-  },
-  methods: {
-    handleJumpDetail(id) {
-      console.log(id)
-    }
   }
 }
 </script>

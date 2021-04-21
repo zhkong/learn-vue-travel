@@ -1,8 +1,10 @@
 <template>
   <div>
-    <div class="header-back-static iconfont" :style="backOpacityStyle">
-      &#xe685;
-    </div>
+    <router-link to="/">
+      <div class="header-back-static iconfont" :style="backOpacityStyle">
+        &#xe685;
+      </div>
+    </router-link>
     <div class="header" :style="headerOpacityStyle">
       <router-link to="/" v-slot="{ navigate }" custom>
         <span class="header-back-icon iconfont" @click="navigate"

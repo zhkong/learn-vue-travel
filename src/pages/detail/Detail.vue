@@ -8,7 +8,7 @@
       :imageList="imageList"
       @close="handleImageShown"
     />
-    <div :style="{ height: '50rem', color: 'red' }">a</div>
+    <!-- <div :style="{ height: '50rem', color: 'red' }">a</div> -->
   </div>
 </template>
 
